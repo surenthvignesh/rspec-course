@@ -24,3 +24,11 @@ RSpec.describe 'math_calculations' do
 
 	end
 end
+
+
+Reading_Failures_Topic:
+	To run the rspec files,
+	cd~ rspec - this will run all the rspec files.
+
+	To run specific files,
+	cd~ rspec spec/card_spec.rb
