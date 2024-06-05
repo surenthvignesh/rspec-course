@@ -8,16 +8,20 @@ class Card
 	end
 end
 
-# Refractored code examples groups with arguments
+# Before hooks and instance variables
 RSpec.describe Card do	
-	card = Card.new('Ace', 'Spades')
+
+	before do
+	# before(:example) do
+		@card = Card.new('Ace', 'Spades')
+	end
 
 	it 'has a rank' do
-		expect(card.rank).to eq('Ace')
+		expect(@card.rank).to eq('Ace')
 	end
 
 	it 'has a suit' do
-		expect(card.suit).to eq('Spades')
+		expect(@card.suit).to eq('Spades')
 	end
 
 end
