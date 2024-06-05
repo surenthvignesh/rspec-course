@@ -1,19 +1,35 @@
 # Making the Specs Pass
 class Card
-	attr_reader :type
+	# attr_reader :type
+	attr_reader :rank
+	attr_reader :suit
 
-	def initialize(type)
-		@type = type
+	def initialize(rank, suit)
+		@rank = rank
+		@suit = suit
 	end
 end
 
-RSpec.describe 'Card' do
-	it 'has a type' do
-		# specify 'has a type' - Can use both it or specify. Both are identical
-		card = Card.new('Ace of Spades')
-		expect(card.type).to eq('Ace of Spades')
-		# expect(1+1).to(eq(2))
+RSpec.describe Card do
+	# it 'has a type' do
+	# 	# specify 'has a type' - Can use both it or specify. Both are identical
+	# 	card = Card.new('Ace', 'Spades')
+	# 	# expect(card.type).to eq('Ace of Spades')
+	# 	# expect(1+1).to(eq(2))
+	# 	expect(card.rank).to eq('Ace')
+	# 	expect(card.suit).to eq('Spades')
+	# end
+
+	card = Card.new('Ace', 'Spades')
+
+	it 'has a rank' do
+		expect(card.rank).to eq('Ace')
 	end
+
+	it 'has a suit' do
+		expect(card.suit).to eq('Spades')
+	end
+
 end
 
 
