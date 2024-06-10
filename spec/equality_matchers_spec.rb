@@ -26,4 +26,35 @@ RSpec.describe 'equality mathcers' do
 		end
 	end
 
+	describe 'equal and be matcher' do
+		let(:c) { [1,2,3] }
+		let(:d) { [1,2,3] }
+		let(:e) { c }
+
+		it 'cares about object identity' do
+			puts ''
+			puts 'Cares about object identity -'
+			expect(c).to eq(d)
+			expect(c).to eql(d)
+
+			# expect(c).to equal(d) # throws an errors says that "Compared using equal?, which compares object identity, but expected and actual are not the same object"
+			# equal - compares the object identity. Cares about the object identity
+			expect(c).to equal(e)
+			puts ''
+			puts 'campares with be matcher'
+			expect(c).to be(e)
+			puts ''
+			puts 'campares not_to with be matcher'
+			expect(c).not_to equal(d)
+			puts ''
+			puts 'campares not_to with equal matcher'
+			expect(c).not_to equal([1,2,3,])
+		end
+
+		# eq 			- checks for the same values
+		# eql 		- checks for the same values and its type
+		# equall 	- checks for the same values and its object identity
+
+	end
+
 end
