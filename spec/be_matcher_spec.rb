@@ -33,5 +33,11 @@ RSpec.describe 'be matchers' do
 		expect(my_hash[:b]).to be_nil
 		expect(my_hash[:b]).to be(nil)
 		expect(my_hash[:b]).to be_falsy
+
+		expect({}.empty?).to be_truthy
+		expect([10, 20, 30]).to all(be_even)
+		expect([0, 1, 2]).to all(be >= 0)
+		expect(["hello", 0, -10, [], 99.99, :hello, true, [1, 2, 3] ]).to all(be_truthy)
+		expect([false, nil ]).to all(be_falsy)
 	end
 end
