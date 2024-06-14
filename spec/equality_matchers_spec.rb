@@ -53,7 +53,7 @@ RSpec.describe 'equality mathcers' do
 
 		# eq 			- checks for the same values
 		# eql 		- checks for the same values and its type
-		# equall 	- checks for the same values and its object identity
+		# equal 	- checks for the same values and its object identity
 
 	end
 
