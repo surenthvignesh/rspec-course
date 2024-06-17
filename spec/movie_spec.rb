@@ -35,6 +35,7 @@ class Movie
 			puts "actor.act - #{actor.act}"
 			puts "actor.fall_off_ladder - #{actor.fall_off_ladder}"
 			puts "actor.light_on_fire - #{actor.light_on_fire}"
+			puts "actor.act_again - #{actor.act}"
 			puts ''
 		end
 	end
@@ -54,10 +55,21 @@ RSpec.describe Movie do
 		it 'expects an actor to do 3 actions' do
 			puts ''
 			puts 'expects an actor to do 4 actions'
-			expect(stuntman).to receive(:ready?)
-			expect(stuntman).to receive(:act)
-			expect(stuntman).to receive(:fall_off_ladder)
-			expect(stuntman).to receive(:light_on_fire)
+			# expect(stuntman).to receive(:ready?)
+			# expect(stuntman).to receive(:act)
+			# expect(stuntman).to receive(:fall_off_ladder)
+			# expect(stuntman).to receive(:light_on_fire)
+
+			puts ''
+			puts "Receive counts - once, exactly, at_most, at_least"
+			# expect(stuntman).to receive(:light_on_fire).once
+			# expect(stuntman).to receive(:light_on_fire).exactly(1).times
+			expect(stuntman).to receive(:light_on_fire).at_most(1).times
+
+			# expect(stuntman).to receive(:act).twice
+			# expect(stuntman).to receive(:act).exactly(2).times
+			# expect(stuntman).to receive(:act).at_most(2).times
+			expect(stuntman).to receive(:act).at_least(2).times
 
 			subject.start_shooting
 		end
